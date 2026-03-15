@@ -1,22 +1,24 @@
 import HeroSection from './components/HeroSection';
-import DemoOne from './components/demo';
-import CustomCursor from './components/CustomCursor';
-import FeaturedProjects from './components/FeaturedProjects';
+import IndustryExperience from './components/IndustryExperience';
+import Projects from './components/Projects';
 import Qualifications from './components/Qualifications';
-import Experiences from './components/Experiences';
 import Testimonials from './components/Testimonials';
+import Process from './components/Process';
+import CustomCursor from './components/CustomCursor';
 import Footer from './components/Footer';
 
 function App() {
   return (
     <div className="bg-black text-white selection:bg-white selection:text-black">
       <CustomCursor />
+
       <HeroSection />
-      <FeaturedProjects />
-      <DemoOne />
+
+      <IndustryExperience />
+      <Projects />
       <Qualifications />
-      <Experiences />
       <Testimonials />
+      <Process />
       <Footer />
     </div>
   );

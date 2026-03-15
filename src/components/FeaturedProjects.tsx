@@ -77,10 +77,10 @@ export default function FeaturedProjects() {
         <section ref={sectionRef} className="py-24 px-6 md:px-12 lg:px-24 bg-black text-white w-full relative z-30">
             <div ref={headerRef} className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-24">
                 <div>
-                    <p className="text-gray-400 uppercase tracking-widest text-sm mb-4 font-semibold">Selected Work</p>
+                    <p className="text-[#FF7F3E] uppercase tracking-widest text-sm mb-4 font-semibold">Selected Work</p>
                     <h2 className="text-5xl md:text-7xl font-bold italic font-serif tracking-tight">Featured<br />Projects</h2>
                 </div>
-                <button className="interactable mt-8 md:mt-0 group flex items-center gap-3 text-lg border-b border-white pb-1 hover:text-gray-300 transition-colors">
+                <button className="interactable mt-8 md:mt-0 group flex items-center gap-3 text-lg border-b border-[#FF7F3E] pb-1 hover:text-[#FF7F3E] transition-colors">
                     View All Work
                     <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </button>
@@ -93,16 +93,16 @@ export default function FeaturedProjects() {
                             <img
                                 src={project.image}
                                 alt={project.title}
-                                className="w-full h-[400px] md:h-[600px] object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale hover:grayscale-0"
+                                className="w-full h-[400px] md:h-[600px] object-cover transition-all duration-700 group-hover:scale-105 group-hover:brightness-110"
                             />
                         </div>
                         <div className="w-full lg:w-2/5 flex flex-col justify-center">
                             <div className="flex justify-between items-center mb-6">
-                                <span className="text-gray-400 tracking-wider text-sm">{project.category}</span>
-                                <span className="text-gray-500 font-serif italic">{project.year}</span>
+                                <span className="text-gray-400 group-hover:text-[#FF7F3E] transition-colors duration-300 tracking-wider text-sm">{project.category}</span>
+                                <span className="text-gray-500 group-hover:text-white transition-colors duration-300 font-serif italic">{project.year}</span>
                             </div>
-                            <h3 className="text-4xl md:text-5xl font-bold mb-6 group-hover:text-gray-300 transition-colors">{project.title}</h3>
-                            <button className="w-12 h-12 rounded-full border border-gray-600 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                             <h3 className="text-4xl md:text-5xl font-bold mb-6 text-white group-hover:text-[#FF7F3E] transition-colors duration-300">{project.title}</h3>
+                            <button className="w-12 h-12 rounded-full border border-gray-600 flex items-center justify-center group-hover:bg-[#FF7F3E] group-hover:border-[#FF7F3E] group-hover:text-black transition-all">
                                 <ArrowUpRight className="w-6 h-6" />
                             </button>
                         </div>

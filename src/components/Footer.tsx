@@ -42,7 +42,7 @@ export default function Footer() {
                 <h2 ref={textRef} className="text-6xl md:text-[10rem] font-bold tracking-tighter leading-none interactable hover:text-gray-300 transition-colors cursor-pointer">
                     Let's Talk
                 </h2>
-                <a href="aswanidubey496@gmail.com" className="mt-12 text-2xl md:text-4xl font-serif italic border-b border-gray-700 pb-2 hover:border-white transition-colors interactable">
+                <a href="mailto:aswanidubey496@gmail.com" className="mt-12 text-2xl md:text-4xl font-serif italic border-b border-[#FF7F3E]/30 pb-2 hover:border-[#FF7F3E] hover:text-[#FF7F3E] transition-colors interactable">
                     aswanidubey496@gmail.com
                 </a>
             </div>

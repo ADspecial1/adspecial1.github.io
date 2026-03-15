@@ -78,20 +78,20 @@ export default function Qualifications() {
     return (
         <section ref={sectionRef} className="py-24 px-6 md:px-12 lg:px-24 bg-[#050505] text-white w-full relative z-30">
             <div className="text-center mb-16 md:mb-24 qual-header">
-                <p className="text-gray-400 uppercase tracking-widest text-sm mb-4 font-semibold">Education & Certifications</p>
-                <h2 className="text-5xl md:text-6xl font-bold font-serif italic">Qualifications</h2>
+                <p className="text-[#FF7F3E] uppercase tracking-widest text-sm mb-4 font-semibold">Education & Certifications</p>
+                <h2 className="text-5xl md:text-6xl font-bold font-serif italic text-white">Qualifications</h2>
             </div>
 
             <div ref={cardsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {qualifications.map((item) => (
                     <div
                         key={item.id}
-                        className="interactable bg-[#111111] p-8 rounded-2xl border border-gray-800 hover:border-gray-500 transition-colors duration-500 group relative overflow-hidden"
+                        className="interactable bg-[#111111] p-8 rounded-2xl border border-gray-800 hover:border-[#FF7F3E]/50 transition-colors duration-500 group relative overflow-hidden"
                     >
                         {/* Subtle gradient glow effect on hover */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                        <div className="absolute inset-0 bg-gradient-to-br from-[#FF7F3E]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
 
-                        <div className="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center mb-6 text-gray-300 group-hover:text-white transition-colors duration-300">
+                        <div className="w-14 h-14 bg-[#FF7F3E]/10 rounded-full flex items-center justify-center mb-6 text-[#FF7F3E] group-hover:bg-[#FF7F3E] group-hover:text-black transition-all duration-300">
                             {item.icon}
                         </div>
                         <h3 className="text-2xl font-bold mb-2">{item.title}</h3>
