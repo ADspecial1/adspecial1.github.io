@@ -42,6 +42,7 @@ const Projects = () => {
         pin: true,
         anticipatePin: 1,
         invalidateOnRefresh: true,
+        refreshPriority: 5,
         onUpdate: (self) => {
           if (progressRef.current) {
             progressRef.current.style.transform = `scaleX(${self.progress})`;
@@ -94,13 +95,20 @@ const Projects = () => {
     });
 
     // Refresh after layout settles to account for Hero pinning
-    const timer = setTimeout(() => ScrollTrigger.refresh(), 1000);
-    return () => clearTimeout(timer);
+    const timer = setTimeout(() => ScrollTrigger.refresh(), 2000);
+
+    const fullRefresh = () => ScrollTrigger.refresh();
+    window.addEventListener('load', fullRefresh);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('load', fullRefresh);
+    };
 
   }, { scope: sectionRef });
 
   return (
-    <div ref={sectionRef} className="projects-section" style={{ position: "relative", background: "#080808", overflow: "hidden" }}>
+    <div ref={sectionRef} className="projects-section" style={{ position: "relative", background: "#000000", overflow: "hidden", marginTop: "-1px" }}>
       <style>{`
         .proj-card {
           width: 90vw;

@@ -137,12 +137,21 @@ export default function HeroSection() {
         const sequencePath = "/sequence/s4";
         const images: HTMLImageElement[] = [];
         let currentFrameIndex = 0;
+        let loadedCount = 0;
 
         const pad = (n: number, len: number) => String(n).padStart(len, "0");
+
+        const onImageLoad = () => {
+            loadedCount++;
+            if (loadedCount === 20 || loadedCount === 50 || loadedCount === TOTAL_FRAMES) {
+                ScrollTrigger.refresh();
+            }
+        };
 
         for (let i = 0; i < TOTAL_FRAMES; i++) {
             const img = new Image();
             img.src = `${sequencePath}/frame-${pad(i, 3)}.webp`;
+            img.onload = onImageLoad;
             images.push(img);
         }
 
@@ -151,7 +160,10 @@ export default function HeroSection() {
             if (img && img.complete && img.naturalWidth > 0) {
                 drawImageProp(context, img);
             } else if (img) {
-                img.onload = render;
+                img.onload = () => {
+                    onImageLoad();
+                    render();
+                };
             }
         };
 
@@ -160,7 +172,10 @@ export default function HeroSection() {
             if (images[0].complete && images[0].naturalWidth > 0) {
                 render();
             } else {
-                images[0].onload = () => render();
+                images[0].onload = () => {
+                    onImageLoad();
+                    render();
+                };
                 const poll = setInterval(() => {
                     if (images[0].complete && images[0].naturalWidth > 0) {
                         render();
@@ -176,53 +191,49 @@ export default function HeroSection() {
         tryRender();
 
         // ── 7. GSAP Timeline ──────────────────────────────────────────────
-        const triggers: ScrollTrigger[] = [];
-        const obj = { frame: 0 };
+        const mm = gsap.context(() => {
+            const obj = { frame: 0 };
+            const mainTimeline = gsap.timeline({
+                onUpdate: () => {
+                    const frame = Math.round(obj.frame);
+                    if (frame !== lastFrame.current) {
+                        lastFrame.current = frame;
+                        currentFrameIndex = frame;
+                        render();
+                        updateChapters(frame);
+                    }
+                },
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top top",
+                    end: "+=5000",
+                    scrub: 0.2, // Reduced scrub for tighter handoff
+                    pin: true,
+                    pinSpacing: true,
+                    anticipatePin: 1,
+                    refreshPriority: 10, // Ensure hero is calculated first
+                },
+            });
 
-        const mainTimeline = gsap.timeline({
-            onUpdate: () => {
-                const frame = Math.round(obj.frame);
+            // Phase 1: scrub frames 0 → 181 (90% of scroll)
+            mainTimeline.to(obj, { frame: 181, ease: "none", duration: 0.9 }, 0);
 
-                if (frame !== lastFrame.current) {
-                    lastFrame.current = frame;
-                    currentFrameIndex = frame;
-                    render();
-                    updateChapters(frame);
-                }
-            },
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top top",
-                end: "+=5000",
-                scrub: 0.5,
-                pin: true,
-                pinSpacing: true,
-                anticipatePin: 1,
-            },
-        });
-
-        // Phase 1: scrub frames 0 → 181 (90% of scroll)
-        mainTimeline.to(obj, { frame: 181, ease: "none", duration: 0.9 }, 0);
-
-        // Phase 2: frames 181 → 191 + cinematic exit (last 10%)
-        mainTimeline.to(obj, { frame: TOTAL_FRAMES - 1, ease: "none", duration: 0.1 }, 0.9);
-        mainTimeline.to(canvas, {
-            scale: 1.15,
-            opacity: 0,
-            filter: "blur(10px)",
-            ease: "power2.inOut",
-            duration: 0.1,
-        }, 0.9);
-
-        if (mainTimeline.scrollTrigger) triggers.push(mainTimeline.scrollTrigger);
+            // Phase 2: frames 181 → 191 + cinematic exit (last 10%)
+            mainTimeline.to(obj, { frame: TOTAL_FRAMES - 1, ease: "none", duration: 0.1 }, 0.9);
+            mainTimeline.to(canvas, {
+                scale: 1.15,
+                opacity: 0,
+                filter: "blur(10px)",
+                ease: "power2.inOut",
+                duration: 0.1,
+            }, 0.9);
+        }, containerRef);
 
         // ── 8. Force chapter 1 visible on mount ───────────────────────────
-        // Two-stage: immediate + after ScrollTrigger settles
         updateChapters(0);
-
         const refreshTimer = setTimeout(() => {
             ScrollTrigger.refresh();
-            updateChapters(0); // re-apply after layout is computed
+            updateChapters(0);
         }, 150);
 
         // ── 9. Cleanup ────────────────────────────────────────────────────
@@ -231,8 +242,7 @@ export default function HeroSection() {
             window.removeEventListener("resize", resizeCanvas);
             lenis.destroy();
             gsap.ticker.remove(ticker);
-            triggers.forEach(t => t.kill());
-            ScrollTrigger.getAll().forEach(t => t.kill());
+            mm.revert(); // Scoped cleanup only!
         };
     }, []);
 

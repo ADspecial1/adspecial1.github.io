@@ -49,6 +49,7 @@ export default function IndustryExperience() {
                     scrollTrigger: {
                         trigger: sectionRef.current,
                         start: "top 80%",
+                        refreshPriority: 8,
                     }
                 }
             );
@@ -67,17 +68,22 @@ export default function IndustryExperience() {
                         scrollTrigger: {
                             trigger: listRef.current,
                             start: "top 85%",
+                            refreshPriority: 8,
                         }
                     }
                 );
             }
         });
 
-        return () => ctx.revert();
+        const timer = setTimeout(() => ScrollTrigger.refresh(), 1500);
+        return () => {
+            ctx.revert();
+            clearTimeout(timer);
+        };
     }, []);
 
     return (
-        <section ref={sectionRef} className="py-24 px-6 md:px-12 lg:px-24 bg-black text-white w-full relative z-30">
+        <section ref={sectionRef} className="py-24 px-6 md:px-12 lg:px-24 bg-[#000000] text-white w-full relative z-30" style={{ marginTop: "-1px" }}>
             <div ref={headerRef} className="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-24">
                 <div>
                     <p className="text-[#FF7F3E] uppercase tracking-widest text-sm mb-4 font-semibold">Career Journey</p>
