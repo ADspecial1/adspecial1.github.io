@@ -1,11 +1,11 @@
 export const PROJECTS = [
   {
     num: "01",
-    category: "Full-Stack SaaS",
-    title: "Project Alpha",
-    desc: "End-to-end product — auth, billing, real-time dashboard. Shipped to 2k users in 3 months.",
-    tags: ["Next.js", "Supabase", "Stripe", "Tailwind"],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+    category: "Dashboard App",
+    title: "Kanban Board",
+    desc: "Full-featured Kanban board with real-time data, CRM pipeline, revenue distribution and performance analytics built with Refine and Firebase.",
+    tags: ["Refine", "Firebase", "React", "Tailwind"],
+    image: "/kanban-board.png",
     href: "#",
   },
   {

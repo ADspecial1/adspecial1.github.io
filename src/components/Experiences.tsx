@@ -7,24 +7,24 @@ gsap.registerPlugin(ScrollTrigger);
 const experiences = [
     {
         id: 1,
-        role: "Senior Frontend Engineer",
-        company: "Vercel",
-        period: "2023 - Present",
-        description: "Leading the development of high-performance web interfaces and contributing to open-source tools. Focused on React Server Components, Next.js, and global edge infrastructure.",
+        role: "React Native Developer",
+        company: "Sencilla Solutions",
+        period: "Oct 2025 - Jan 2026",
+        description: "Developed cross-platform mobile applications using React Native. Built and maintained frontend features, collaborated with design and backend teams to deliver seamless user experiences.",
     },
     {
         id: 2,
-        role: "Creative Developer",
-        company: "Studio Freight",
-        period: "2021 - 2023",
-        description: "Built award-winning digital experiences for global brands. Specialized in WebGL, GSAP animations, and custom scroll interactions.",
+        role: "React Native Developer",
+        company: "Converge Digital",
+        period: "Feb 2026 - Sept 2026",
+        description: "Worked on frontend mobile development using React Native, delivering high-quality features and improving app performance for clients across various industries.",
     },
     {
         id: 3,
-        role: "UI Engineer",
-        company: "Stripe",
-        period: "2019 - 2021",
-        description: "Developed accessible and beautiful components for the core Stripe Dashboard. Improved performance and collaborated closely with product design.",
+        role: "React Native Developer",
+        company: "HYNT Solutions",
+        period: "Oct 2026 - Present",
+        description: "Currently building and enhancing mobile applications as a React Native frontend developer, focusing on clean UI implementation and cross-platform compatibility.",
     }
 ];
 

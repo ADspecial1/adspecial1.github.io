@@ -8,27 +8,27 @@ gsap.registerPlugin(ScrollTrigger);
 const experiences = [
     {
         id: 1,
-        role: "Senior Frontend Engineer",
-        company: "Vercel",
-        period: "2023 - PRESENT",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
-        description: "Leading development of high-performance web interfaces and contributing to open-source ecosystem tools.",
+        role: "React Native Developer",
+        company: "Sencilla Solutions",
+        period: "OCT 2025 - JAN 2026",
+        image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2670&auto=format&fit=crop",
+        description: "Developed cross-platform mobile applications using React Native. Built and maintained frontend features, collaborating with design and backend teams to deliver seamless user experiences.",
     },
     {
         id: 2,
-        role: "Creative Developer",
-        company: "Studio Freight",
-        period: "2021 - 2023",
-        image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=2670&auto=format&fit=crop",
-        description: "Crafted award-winning digital experiences focusing on WebGL, motion design, and high-end interactions.",
+        role: "React Native Developer",
+        company: "Converge Digital",
+        period: "FEB 2026 - SEPT 2026",
+        image: "https://images.unsplash.com/photo-1555774698-0b77e0d5fac6?q=80&w=2670&auto=format&fit=crop",
+        description: "Worked on frontend mobile development using React Native, delivering high-quality features and improving app performance for clients across various industries.",
     },
     {
         id: 3,
-        role: "UI Engineer",
-        company: "Stripe",
-        period: "2019 - 2021",
-        image: "https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2670&auto=format&fit=crop",
-        description: "Built scalable and accessible design system components for global payment infrastructures.",
+        role: "React Native Developer",
+        company: "HYNT Solutions",
+        period: "OCT 2026 - PRESENT",
+        image: "https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?q=80&w=2670&auto=format&fit=crop",
+        description: "Currently building and enhancing mobile applications as a React Native frontend developer, focusing on clean UI implementation and cross-platform compatibility.",
     }
 ];
 
