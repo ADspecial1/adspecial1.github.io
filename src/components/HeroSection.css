@@ -74,3 +74,16 @@
     justify-content: center;
     background-color: #000;
 }
+
+@media (max-width: 768px) {
+    .chapter-overlay > div {
+        padding: 5vw !important;
+    }
+    .chapter-pill {
+        font-size: 10px;
+        padding: 5px 12px;
+    }
+    .stat-block {
+        padding: 0 14px;
+    }
+}

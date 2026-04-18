@@ -42,6 +42,14 @@ export default function HeroSection() {
     };
 
     useEffect(() => {
+        // ── Fade-in effect for hero container ──
+        if (containerRef.current) {
+            containerRef.current.style.opacity = '0';
+            containerRef.current.style.transition = 'opacity 1.2s cubic-bezier(0.4,0,0.2,1)';
+            setTimeout(() => {
+                if (containerRef.current) containerRef.current.style.opacity = '1';
+            }, 100); // slight delay to ensure mount
+        }
         // ── 1. Set ALL chapters invisible immediately (prevents flash) ────
         [ch1Ref, ch2Ref, ch3Ref, ch4Ref, ch5Ref, ch6Ref].forEach(ref => {
             if (ref.current) {
@@ -247,7 +255,7 @@ export default function HeroSection() {
     }, []);
 
     return (
-        <div ref={containerRef} className="hero-container">
+        <div ref={containerRef} className="hero-container" style={{ opacity: 1 }}>
             <div className="canvas-container relative">
                 <canvas ref={canvasRef} id="hero-canvas" />
             </div>
@@ -399,8 +407,8 @@ export default function HeroSection() {
                         offline-first architecture, and native feel — shipped to both stores.
                     </p>
                     <div className="chapter-animate" style={{
-                        display: "flex", gap: "20px", marginTop: "30px",
-                        justifyContent: "flex-end",
+                        display: "flex", gap: "12px", marginTop: "30px",
+                        justifyContent: "flex-end", flexWrap: "wrap",
                     }}>
                         {[
                             { val: "2+", label: "APPS LIVE" },

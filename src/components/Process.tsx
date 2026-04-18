@@ -61,7 +61,7 @@ const Process = () => {
       ref={containerRef}
       style={{
         background: "#080808",
-        padding: "120px 5vw",
+        padding: "clamp(60px, 10vw, 120px) clamp(16px, 5vw, 80px)",
         position: "relative",
         overflow: "hidden"
       }}

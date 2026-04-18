@@ -207,7 +207,7 @@ const TechBillboard = () => {
       ref={containerRef}
       style={{
         background: "#080808",
-        padding: "100px 0",
+        padding: "clamp(60px, 8vw, 100px) 0",
         overflow: "hidden",
         width: "100%",
         display: "flex",

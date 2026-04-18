@@ -7,21 +7,21 @@ gsap.registerPlugin(ScrollTrigger);
 const testimonials = [
     {
         id: 1,
-        quote: "An absolute wizard when it comes to web animations and motion design. Delivered our project ahead of schedule with flawless execution.",
-        author: "Sarah Jenkins",
-        role: "Design Director, CreativeCo"
+        quote: "Got our outlet's website built and honestly it came out much better than what we expected. Clean design, easy to navigate, and our customers actually love it. Would recommend without a second thought.",
+        author: "Chirag Vyas",
+        role: "Owner, Vyas Sweets & Dry fruits"
     },
     {
         id: 2,
-        quote: "The level of detail and polish applied to our product was unprecedented. Highly recommended for premium web experiences.",
-        author: "Michael Chang",
-        role: "Founder, NexusTech"
+        quote: "Collaborated on the frontend for our event-based workflow application at Capgemini. The work was sharp, well-structured, and integrated smoothly with the rest of the system. Great to work with.",
+        author: "Suraj Mishra",
+        role: "Software Engineer, Capgemini"
     },
     {
         id: 3,
-        quote: "Brought our static designs to life in a way we couldn't have imagined. The codebase is incredibly clean and maintainable.",
-        author: "Elena Rodriguez",
-        role: "CTO, Finova"
+        quote: "We are building an agentic AI system together for internal business use and the approach has been very thoughtful. Understands the problem deeply before jumping to solutions. Solid engineering mindset.",
+        author: "Ritesh Tiwari",
+        role: "Engineer, Ness Digital Engineering"
     }
 ];
 

@@ -8,26 +8,26 @@ gsap.registerPlugin(ScrollTrigger);
 const qualifications = [
     {
         id: 1,
-        title: "B.Sc. in Computer Science",
-        institution: "Stanford University",
-        year: "2018 - 2022",
-        description: "Specialized in Human-Computer Interaction and Computer Graphics. Graduated with Honors.",
+        title: "B.Sc. in Information Technology",
+        institution: "Thakur Ramnarayan College of Arts & Commerce",
+        year: "Completed",
+        description: "Graduated with a CGPA of 8.2, building a strong foundation in software development, databases, and computer networks.",
         icon: <BookOpen className="w-6 h-6" />
     },
     {
         id: 2,
-        title: "Advanced Web Animations",
-        institution: "Awwwards Academy",
-        year: "2023",
-        description: "Masterclass on WebGL, Three.js, and advanced GSAP techniques for crafting premium web experiences.",
+        title: "M.Sc. in Information Technology",
+        institution: "Mumbai University",
+        year: "Pursuing",
+        description: "Currently pursuing post-graduation with a focus on advanced computing, AI, and modern software engineering practices.",
         icon: <Hexagon className="w-6 h-6" />
     },
     {
         id: 3,
-        title: "Certified Cloud Practitioner",
-        institution: "AWS",
-        year: "2023",
-        description: "Validated overall understanding of the AWS Cloud platform, covering foundational cloud concepts and security.",
+        title: "Introduction to CUDA",
+        institution: "NVIDIA",
+        year: "2026",
+        description: "Completed NVIDIA's official CUDA programming course, covering GPU architecture, parallel computing, and accelerated application development.",
         icon: <Award className="w-6 h-6" />
     }
 ];

@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
@@ -20,6 +20,53 @@ const Image = ({ src, alt, fill, style, sizes }: { src: string, alt: string, fil
     }}
   />
 );
+
+const ImageSlider = ({ images }: { images: string[] }) => {
+  const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setCurrent(c => (c + 1) % images.length), 3000);
+    return () => clearInterval(id);
+  }, [images.length]);
+
+  return (
+    <div style={{ position: "relative", width: "100%", height: "100%" }}>
+      {images.map((src, i) => (
+        <img
+          key={src}
+          src={src}
+          alt={`slide-${i}`}
+          style={{
+            position: "absolute", top: 0, left: 0,
+            width: "100%", height: "100%",
+            objectFit: "cover",
+            opacity: i === current ? 1 : 0,
+            transition: "opacity 0.7s ease",
+          }}
+        />
+      ))}
+      {/* Dot indicators */}
+      <div style={{
+        position: "absolute", bottom: "12px", left: "50%",
+        transform: "translateX(-50%)",
+        display: "flex", gap: "8px", zIndex: 20,
+      }}>
+        {images.map((_, i) => (
+          <div
+            key={i}
+            style={{
+              width: i === current ? "24px" : "8px",
+              height: "8px",
+              borderRadius: "4px",
+              background: i === current ? "#FF7F3E" : "rgba(255,255,255,0.3)",
+              transition: "all 0.3s ease",
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const Projects = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -162,6 +209,27 @@ const Projects = () => {
           pointer-events: none;
           z-index: 0;
         }
+        @media (max-width: 768px) {
+          .proj-card {
+            grid-template-columns: 1fr;
+            width: 88vw;
+            height: auto;
+            min-height: 100vh;
+            align-content: center;
+            gap: 24px;
+            padding-top: 80px;
+            padding-bottom: 40px;
+          }
+          .proj-img-container {
+            aspect-ratio: 16/9;
+            height: auto;
+          }
+          .proj-num-bg {
+            font-size: clamp(60px, 18vw, 100px);
+            top: 12px;
+            right: 0;
+          }
+        }
       `}</style>
 
       {/* Persistent top bar */}
@@ -186,7 +254,7 @@ const Projects = () => {
           color: "rgba(255,255,255,0.4)",
           letterSpacing: "0.1em"
         }}>
-          01 / 05
+          01 / {String(PROJECTS.length).padStart(2, "0")}
         </span>
       </div>
 
@@ -208,11 +276,15 @@ const Projects = () => {
             {/* IMAGE — left col */}
             <div className="proj-img-container">
               <div className="proj-img-wrap" style={{ clipPath: "inset(0 100% 0 0)" }}>
-                <Image
-                  src={p.image} alt={p.title}
-                  fill style={{ objectFit: "cover" }}
-                  sizes="60vw"
-                />
+                {p.images && p.images.length > 1 ? (
+                  <ImageSlider images={[...p.images]} />
+                ) : (
+                  <Image
+                    src={p.image} alt={p.title}
+                    fill style={{ objectFit: "cover" }}
+                    sizes="60vw"
+                  />
+                )}
                 <div className="proj-overlay" />
               </div>
               {/* Fallback pattern */}
@@ -226,8 +298,9 @@ const Projects = () => {
             {/* TEXT — right col */}
             <div style={{
               display: "flex", flexDirection: "column",
-              gap: "24px", position: "relative",
-              zIndex: 20
+              gap: "20px", position: "relative",
+              zIndex: 20, overflow: "hidden",
+              maxHeight: "80vh",
             }}>
               <div className="proj-num-bg">{p.num}</div>
 
@@ -255,10 +328,14 @@ const Projects = () => {
               </h3>
 
               <p className="proj-desc" style={{
-                fontSize: "16px",
+                fontSize: "15px",
                 color: "rgba(240, 237, 230, 0.5)",
-                lineHeight: 1.8, margin: 0,
+                lineHeight: 1.7, margin: 0,
                 maxWidth: "480px", opacity: 0,
+                display: "-webkit-box",
+                WebkitLineClamp: 4,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
               }}>
                 {p.desc}
               </p>
