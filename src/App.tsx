@@ -6,7 +6,7 @@ import IndustryExperience from './components/IndustryExperience';
 import Projects from './components/Projects';
 import Qualifications from './components/Qualifications';
 import Testimonials from './components/Testimonials';
-import Process from './components/Process';
+
 import CurrentlyLearning from './components/CurrentlyLearning';
 import CustomCursor from './components/CustomCursor';
 import Footer from './components/Footer';
@@ -150,7 +150,7 @@ function Loading({ exiting }: { exiting: boolean }) {
 }
 
 function App() {
-  const [loading,  setLoading]  = useState(true);
+  // const [loading,  setLoading]  = useState(true);
   const [exiting,  setExiting]  = useState(false);
   const [gone,     setGone]     = useState(false);
 
@@ -163,7 +163,7 @@ function App() {
       setTimeout(() => {
         setExiting(true);
         setTimeout(() => {
-          setLoading(false);
+          // setLoading(false);
           setGone(true);
           ScrollTrigger.refresh();
         }, 650);
