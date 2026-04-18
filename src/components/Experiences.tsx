@@ -7,24 +7,24 @@ gsap.registerPlugin(ScrollTrigger);
 const experiences = [
     {
         id: 1,
-        role: "Senior Frontend Engineer",
-        company: "Vercel",
-        period: "2023 - Present",
-        description: "Leading the development of high-performance web interfaces and contributing to open-source tools. Focused on React Server Components, Next.js, and global edge infrastructure.",
+        role: "React Native Developer",
+        company: "Sencilla Solutions",
+        period: "Oct 2025 - Jan 2026",
+        description: "Developed cross-platform mobile applications using React Native. Built and maintained frontend features, collaborated with design and backend teams to deliver seamless user experiences.",
     },
     {
         id: 2,
-        role: "Creative Developer",
-        company: "Studio Freight",
-        period: "2021 - 2023",
-        description: "Built award-winning digital experiences for global brands. Specialized in WebGL, GSAP animations, and custom scroll interactions.",
+        role: "React Native Developer",
+        company: "Converge Digital",
+        period: "Feb 2026 - Sept 2026",
+        description: "Worked on frontend mobile development using React Native, delivering high-quality features and improving app performance for clients across various industries.",
     },
     {
         id: 3,
-        role: "UI Engineer",
-        company: "Stripe",
-        period: "2019 - 2021",
-        description: "Developed accessible and beautiful components for the core Stripe Dashboard. Improved performance and collaborated closely with product design.",
+        role: "React Native Developer",
+        company: "HYNT Solutions",
+        period: "Oct 2026 - Present",
+        description: "Currently building and enhancing mobile applications as a React Native frontend developer, focusing on clean UI implementation and cross-platform compatibility.",
     }
 ];
 
@@ -74,7 +74,7 @@ export default function Experiences() {
             <div className="flex flex-col lg:flex-row gap-16 md:gap-24">
 
                 <div className="w-full lg:w-1/3 exp-header">
-                    <p className="text-gray-400 uppercase tracking-widest text-sm mb-4 font-semibold">Career</p>
+                    <p className="text-[#FF7F3E] uppercase tracking-widest text-sm mb-4 font-semibold">Career</p>
                     <h2 className="text-5xl md:text-7xl font-bold font-serif italic mb-8">Work<br />Experience</h2>
                     <p className="text-gray-400 leading-relaxed text-lg max-w-sm">
                         A timeline of my professional journey, building tools and experiences for millions of users worldwide.
@@ -91,7 +91,7 @@ export default function Experiences() {
                                 <span className="text-gray-500 font-serif italic text-lg">{exp.period}</span>
                             </div>
                             <div className="md:w-3/4">
-                                <h3 className="text-3xl font-bold mb-2 group-hover:text-gray-300 transition-colors">{exp.role}</h3>
+                                <h3 className="text-3xl font-bold mb-2 group-hover:text-[#FF7F3E] transition-colors">{exp.role}</h3>
                                 <h4 className="text-xl text-gray-400 mb-6 group-hover:text-white transition-colors">{exp.company}</h4>
                                 <p className="text-gray-500 leading-relaxed max-w-2xl group-hover:text-gray-400 transition-colors">
                                     {exp.description}

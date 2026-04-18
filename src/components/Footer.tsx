@@ -39,11 +39,16 @@ export default function Footer() {
         <footer ref={footerRef} className="py-24 px-6 md:px-12 lg:px-24 bg-black text-white w-full relative z-30 overflow-hidden rounded-t-[3rem] border-t border-gray-900">
             <div className="flex flex-col items-center justify-center text-center mb-20 md:mb-32">
                 <p className="text-gray-400 tracking-widest uppercase text-sm font-semibold mb-6">Have an idea?</p>
-                <h2 ref={textRef} className="text-6xl md:text-[10rem] font-bold tracking-tighter leading-none interactable hover:text-gray-300 transition-colors cursor-pointer">
+                <h2 ref={textRef} className="text-5xl sm:text-7xl md:text-[10rem] font-bold tracking-tighter leading-none interactable hover:text-gray-300 transition-colors cursor-pointer">
                     Let's Talk
                 </h2>
-                <a href="aswanidubey496@gmail.com" className="mt-12 text-2xl md:text-4xl font-serif italic border-b border-gray-700 pb-2 hover:border-white transition-colors interactable">
-                    aswanidubey496@gmail.com
+                <a
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=ashwindubey496@gmail.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-8 md:mt-12 text-lg sm:text-2xl md:text-4xl font-serif italic border-b border-[#FF7F3E]/30 pb-2 hover:border-[#FF7F3E] hover:text-[#FF7F3E] transition-colors interactable break-all text-center px-4"
+                >
+                    ashwindubey496@gmail.com
                 </a>
             </div>
 

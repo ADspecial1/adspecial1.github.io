@@ -7,21 +7,21 @@ gsap.registerPlugin(ScrollTrigger);
 const testimonials = [
     {
         id: 1,
-        quote: "An absolute wizard when it comes to web animations and motion design. Delivered our project ahead of schedule with flawless execution.",
-        author: "Sarah Jenkins",
-        role: "Design Director, CreativeCo"
+        quote: "Got our outlet's website built and honestly it came out much better than what we expected. Clean design, easy to navigate, and our customers actually love it. Would recommend without a second thought.",
+        author: "Chirag Vyas",
+        role: "Owner, Vyas Sweets & Dry fruits"
     },
     {
         id: 2,
-        quote: "The level of detail and polish applied to our product was unprecedented. Highly recommended for premium web experiences.",
-        author: "Michael Chang",
-        role: "Founder, NexusTech"
+        quote: "Collaborated on the frontend for our event-based workflow application at Capgemini. The work was sharp, well-structured, and integrated smoothly with the rest of the system. Great to work with.",
+        author: "Suraj Mishra",
+        role: "Software Engineer, Capgemini"
     },
     {
         id: 3,
-        quote: "Brought our static designs to life in a way we couldn't have imagined. The codebase is incredibly clean and maintainable.",
-        author: "Elena Rodriguez",
-        role: "CTO, Finova"
+        quote: "We are building an agentic AI system together for internal business use and the approach has been very thoughtful. Understands the problem deeply before jumping to solutions. Solid engineering mindset.",
+        author: "Ritesh Tiwari",
+        role: "Engineer, Ness Digital Engineering"
     }
 ];
 
@@ -70,8 +70,8 @@ export default function Testimonials() {
     return (
         <section ref={sectionRef} className="py-24 px-6 md:px-12 lg:px-24 bg-[#050505] text-white w-full relative z-30">
             <div className="flex flex-col items-center text-center mb-16 md:mb-24 test-header">
-                <p className="text-gray-400 uppercase tracking-widest text-sm mb-4 font-semibold">Client Feedback</p>
-                <h2 className="text-5xl md:text-7xl font-bold font-serif italic max-w-3xl">What people say</h2>
+                <p className="text-[#FF7F3E] uppercase tracking-widest text-sm mb-4 font-semibold">Client Feedback</p>
+                <h2 className="text-5xl md:text-7xl font-bold font-serif italic max-w-3xl text-white">What people say</h2>
             </div>
 
             <div ref={containerRef} className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -80,7 +80,7 @@ export default function Testimonials() {
                         key={test.id}
                         className="interactable bg-[#111] p-10 rounded-[2rem] border border-gray-800 hover:bg-[#151515] transition-colors duration-500"
                     >
-                        <svg className="w-10 h-10 text-gray-700 mb-6" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
+                        <svg className="w-10 h-10 text-[#FF7F3E]/50 mb-6" fill="currentColor" viewBox="0 0 32 32" aria-hidden="true">
                             <path d="M9.352 4C4.456 7.456 1 13.12 1 19.36c0 5.088 3.072 8.064 6.624 8.064 3.36 0 5.856-2.688 5.856-5.856 0-3.168-2.208-5.472-5.088-5.472-.576 0-1.344.096-1.536.192.48-3.264 3.552-7.104 6.624-9.024L9.352 4zm16.512 0c-4.8 3.456-8.256 9.12-8.256 15.36 0 5.088 3.072 8.064 6.624 8.064 3.264 0 5.856-2.688 5.856-5.856 0-3.168-2.304-5.472-5.184-5.472-.576 0-1.248.096-1.44.192.48-3.264 3.456-7.104 6.528-9.024L25.864 4z" />
                         </svg>
                         <p className="text-xl md:text-2xl font-serif italic text-gray-300 leading-snug mb-10">
